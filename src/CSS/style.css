@@ -1,0 +1,25 @@
+#searchBar {
+    line-height: 0;
+    padding: 1% 0;
+}
+#search {
+    width: 80%;
+}
+
+#tbl {
+    padding: 1% 0;
+}
+table th {
+    background-color: #306e51;
+    color: mintcream;
+}
+table, th, td {
+    border: 2px solid #ffffff;
+    border-collapse: collapse;
+}
+td {
+    background-color: #96D4D4;
+}
+th, td {
+    padding: 1em;
+}

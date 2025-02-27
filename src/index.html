@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="se">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>EcmaScript</title>
+    <script src="js/main.js" type="module"></script>
+</head>
+<body>
+<h1>Webbutveckling - Ramscema</h1>
+<div id="test"></div>
+<p>Sök:</p>
+<input type="text" id="search" onkeyup="searchFun()" placeholder="Sök efter kurskod eller kursnamn">
+    <table id="courseTable">
+        <thead>
+            <tr class="header">
+                <th id="sortFun">Kurskod</th>
+                <th id="sortFun">Kursnamn</th>
+                <th id="sortFun">Progression</th>
+            </tr>    
+        </thead>
+        <tbody>
+            <tr>
+                    <td id="kurskod"></td>
+                    <td id="kursname"></td>
+                    <td id="prognm"></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</body>
+</html>
