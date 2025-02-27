@@ -1,14 +1,7 @@
 "use strict";
 
 //Start av applikation
-window.onload = init;
-
-let sortEl = document.getElementById('sortFun');
-sortEl.addEventListener("click", sortFun());
-
-let searchEl =document.getElementById('search');
-searchEl.addEventListener("keyup", searchFun());
-
+window.onload = init ();
 
 /* UPPGIFT:
     Använda FetchAPI-anrop tillsammans med async/await och try/catch.
@@ -47,8 +40,8 @@ function init () {
   getData();
 }
 
-
-//Hämta data från webbtjänst & anropa webbtjänst
+//Anropa webbtjänst
+//Hämta & hantera data från webbtjänst
 //Promises i FetchAPI-anrop som hanterar resultat
 async function getData(){
   const url = 'https://webbutveckling.miun.se/files/ramschema_ht24.json';
@@ -114,25 +107,25 @@ Webbutveckling - Ramscema
 */
 
 // Sök funktion
-new function searchFun(inputVal) {
-  // Deklarerar allt
-  let input = document.getElementById('search').value;
+function filterTable() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let rows = document.querySelectorAll("#courseTable tbody tr");
 
-  //let filterTbl = ;
-  //let filteredData = data.filter ();
-
-
-  filterTbl.forEach( tr =>{
-    filter = input.value.toUpperCase();
-    tr = table.getElementsByTagName('tr');
-
-  })
-
+  rows.forEach(row => {
+      let text = row.textContent.toLowerCase();
+      if (text.includes(input)) {
+          row.style.display = "";
+      } else {
+          row.style.display = "none";
+      }
+  });
 }
+//Search event listener
+document.getElementById("search").addEventListener("keyup", filterTable);
 
 // Sort function A-Ö
 // Sortera data i bokstavsordning, på kurskod, kursnamn samt progression.
-new function sortFun(n) {
+new function sortFun() {
     
 }
 
