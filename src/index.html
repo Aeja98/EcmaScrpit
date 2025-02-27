@@ -8,29 +8,30 @@
     <title>EcmaScript</title>
     <script src="js/main.js" type="module"></script>
 </head>
+
 <body>
 <h1>Webbutveckling - Ramscema</h1>
-<div id="test"></div>
-<p>Sök:</p>
-<input type="text" id="search" onkeyup="searchFun()" placeholder="Sök efter kurskod eller kursnamn">
-    <table id="courseTable">
-        <thead>
-            <tr class="header">
-                <th id="sortFun">Kurskod</th>
-                <th id="sortFun">Kursnamn</th>
-                <th id="sortFun">Progression</th>
-            </tr>    
-        </thead>
-        <tbody>
-            <tr>
-                    <td id="kurskod"></td>
-                    <td id="kursname"></td>
-                    <td id="prognm"></td>
-            </tr>
 
-        </tbody>
+<p id="searchBar">Sök:</p>
+<input type="text" id="search" placeholder="Sök efter kurskod eller kursnamn">
 
-    </table>
+<table id="courseTable">
+    <thead>
+        <tr class="header">
+            <th id="sortFun">Kurskod</th>
+            <th id="sortFun">Kursnamn</th>
+            <th id="sortFun">Progression</th>
+        </tr>    
+    </thead>
+    <tbody>
+        <tr>
+                <td id="kurskod"></td>
+                <td id="kursname"></td>
+                <td id="prognm"></td>
+        </tr>
+
+    </tbody>
+</table>
 
 </body>
 </html>

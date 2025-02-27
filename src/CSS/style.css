@@ -1,24 +1,55 @@
-#searchBar {
-    line-height: 0;
-    padding: 1% 0;
-}
-#search {
-    width: 80%;
+body{
+    background-color: #164a41e1;
+    color: #f0fff5;
 }
 
-#tbl {
-    padding: 1% 0;
+h1 {
+    font-size: 35px;
+    margin: 4%;
+    margin-bottom: 0;
 }
-table th {
-    background-color: #306e51;
-    color: mintcream;
+
+#searchBar {
+    padding: 1% 0;
+    margin: 0 4%;
+    font-size: 20px;
+}
+#search {
+    padding: 1% 0;
+    margin: 0 4%;
+    width: 75%;
+    font-size: 16px;
+    border: solid 2px #f0fdff;
+    background-color: #164a41e1;
+    padding: 0.7em;
+    outline: 0;
+    color: #f0fff5;
+}
+#search:hover, #search:focus {
+    background-color: #0f4139;
+    border: solid 2px #baffed;
+    outline: 0;    
+}
+::placeholder {color: #f0fff5;}
+
+#courseTable {
+    margin: 2% 4%;
+    text-align: center;
+    width: 92%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+}
+thead {
+    background-color: #52bcbcd4;
+    font-size: 20px;
+    
 }
 table, th, td {
-    border: 2px solid #ffffff;
+    border: 6px solid #315f57;
     border-collapse: collapse;
 }
 td {
-    background-color: #96D4D4;
+    background-color: cadetblue;
 }
 th, td {
     padding: 1em;
