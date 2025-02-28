@@ -1,8 +1,4 @@
 "use strict";
-
-//Start av applikation
-window.onload = init ();
-
 /* UPPGIFT:
     Använda FetchAPI-anrop tillsammans med async/await och try/catch.
     Träna på att sortera och filtrera data.
@@ -35,10 +31,6 @@ window.onload = init ();
     -Uppgiften är publicerad till en webbhost som ej är FTP/SFTP-baserad med en automatisk publicering vid Git-commits - och går att testköra.
 
 */
-
-function init () {
-  getData();
-}
 
 //Anropa webbtjänst
 //Hämta & hantera data från webbtjänst
@@ -74,7 +66,7 @@ async function getData(){
 
       tableBody.appendChild(row);
   });
-
+    addSort();
     console.log(data);
   }
   catch(error) {
@@ -111,6 +103,7 @@ function filterTable() {
   let input = document.getElementById("search").value.toLowerCase();
   let rows = document.querySelectorAll("#courseTable tbody tr");
 
+  //Checks rows to see if it matches search
   rows.forEach(row => {
       let text = row.textContent.toLowerCase();
       if (text.includes(input)) {
@@ -120,17 +113,48 @@ function filterTable() {
       }
   });
 }
+
+//Function that adds event listener for each header
+function addSort() {
+    let headers = document.querySelectorAll("#courseTable th");
+
+    headers.forEach((header, columnIndex) => {
+        header.style.cursor = "pointer"; // Indicate that it's clickable
+        header.addEventListener("click", () => {
+            console.log(`Sorting column ${columnIndex}`); // Debugging
+            sortTable(columnIndex);
+        });
+    });
+}
+//Stores sorting direction
+ let sortDir = {};
+
+//Function to sort data
+function sortTable(columnIndex) {
+  let tableBody = document.querySelector("#courseTable tbody");
+  let rows = Array.from(tableBody.querySelectorAll("tr"));
+
+//Ascending/descending order
+sortDir[columnIndex] = !sortDir[columnIndex];
+
+  //Goes through each row to determine alphabetical order 
+  rows.sort((rowA, rowB) => {
+    let cellA = rowA.children[columnIndex].textContent.toLowerCase();
+    let cellB = rowB.children[columnIndex].textContent.toLowerCase();
+
+    //Rearranges rows
+    if (cellA < cellB) return sortDir[columnIndex] ? -1 : 1;
+    if (cellA > cellB) return sortDir[columnIndex] ? 1 : -1;
+    return 0;
+});
+
+//Re-append rows
+tableBody.innerHTML = "";
+rows.forEach(row => tableBody.appendChild(row));
+}
+
+//Call function to fetch data & load page
+getData();
+
 //Search event listener
 document.getElementById("search").addEventListener("keyup", filterTable);
-
-// Sort function A-Ö
-// Sortera data i bokstavsordning, på kurskod, kursnamn samt progression.
-new function sortFun() {
-    
-}
-
-/* Sort function Ö-A
-function sortBak() {
-
-}
-*/
